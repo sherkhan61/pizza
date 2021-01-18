@@ -1,9 +1,9 @@
 import React from 'react'
 import logoSvg from "../assets/img/pizza-logo.svg";
-import {Button} from "./Button";
+import Button from "./Button";
 
 
-export const Header = () => {
+const Header = () => {
     return (
         <div className="header">
             <div className="container">
@@ -54,3 +54,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export default Header
