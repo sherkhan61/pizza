@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
 
-export class Categories extends React.Component {
+/*export class Categories extends React.Component {
     state = {
         activeItem: 3
     }
@@ -28,19 +28,26 @@ export class Categories extends React.Component {
             </div>
         )
     }
-}
+}*/
 
 
-/*
 export const Categories = ({items}) => {
+
+    const [activeItem, setActiveItem] = useState(null)
+    const onSelectItem = (index) => {
+        setActiveItem(index)
+    }
+
     return (
         <div className="categories">
             <ul>
-                <li className="active">Все</li>
+                <li>Все</li>
                 {items.map((name, index) => (
-                    <li key={`${name}_${index}`}>{name}</li>
+                    <li className={activeItem === index ? 'active' : ''}
+                        onClick={() => onSelectItem(index)}
+                        key={`${name}_${index}`}>{name}</li>
                 ))}
             </ul>
         </div>
     )
-}*/
+}
