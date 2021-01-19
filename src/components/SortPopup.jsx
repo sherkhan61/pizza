@@ -1,10 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 
 
 const SortPopup = () => {
     const [visiblePopup, setVisiblePopup] = useState(false)
 
+    const toggleVisiblePopup = () => {
+        setVisiblePopup(!visiblePopup)
+    }
+
+    useEffect(() => {
+
+    })
 
     return (
         <div className="sort">
@@ -22,15 +29,15 @@ const SortPopup = () => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span>популярности</span>
+                <span onClick={toggleVisiblePopup}>популярности</span>
             </div>
-            <div className="sort__popup">
+            {visiblePopup && <div className="sort__popup">
                 <ul>
                     <li className="active">популярности</li>
                     <li>цене</li>
                     <li>алфавиту</li>
                 </ul>
-            </div>
+            </div>}
         </div>
     )
 }
